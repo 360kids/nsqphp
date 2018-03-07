@@ -2,6 +2,8 @@
 
 PHP client for [NSQ](https://github.com/bitly/nsq).
 
+Forked from [davegardnerisme/nsqphp](https://github.com/davegardnerisme/nsqphp).
+
 ### Notice
 
 I cannot maintain this anymore - apologies for ignored PRs. If someone wants to take over I am happy to transfer ownership. Send me a message via @davegardnerisme.
@@ -43,7 +45,7 @@ following to your composer.json.
         ...
         "require": {
             ...
-            "davegardnerisme/nsqphp": "dev-master"
+            "360kids/nsqphp": "^1.0"
         }
         ...
     }
