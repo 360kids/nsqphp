@@ -33,19 +33,23 @@ class Writer
     {
         return $this->command('SUB', $topic, $channel, $shortId, $longId);
     }
-    
+
     /**
-     * Publish [PUB]
-     * 
+     * Publish [PUB/DPUB]
+     *
      * @param string $topic
      * @param string $message
-     * 
+     * @param int $defer
      * @return string
      */
-    public function publish($topic, $message)
+    public function publish($topic, $message, $defer = 0)
     {
         // the fast pack way, but may be unsafe
-        $cmd = $this->command('PUB', $topic);
+        if ($defer == 0) {
+            $cmd = $this->command('PUB', $topic);
+        } else {
+            $cmd = $this->command('DPUB', $topic, $defer);
+        }
         $size = pack('N', strlen($message));
         return $cmd . $size . $message;
         
